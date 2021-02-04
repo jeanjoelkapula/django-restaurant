@@ -1,0 +1,168 @@
+{% extends "pinochios/base.html" %}
+{% load static %}
+{% block body %}
+  <div class="carousel slide header-carousel" data-ride="carousel" id="carousel-1">
+    <div class="carousel-inner" role="listbox">
+      <div class="carousel-item active">
+        <header id="header1" class="masthead header" style="background-image: url({% static 'pinochios/images/burger-and-vegetables-placed-on-brown-wood-surface-1565982.jpg' %})">
+          <div class="container header-container">
+            <div class="intro-text">
+              <div class="intro-lead-in"><span>Welcome To Pinnochio's Pizza & Subs!</span></div>
+              <div id="header-main-content" class="intro-heading text-uppercase">
+                <div><span>It's Nice To Meet You</span></div>
+                <div><a class="btn btn-primary active btn-xl rounded-pill mt-5" role="button" id="header-order-button" href="#menu-section">Menu</a></div>
+              </div>
+            </div>
+          </div>
+        </header>
+      </div>
+      <div class="carousel-item">
+        <header id="header2" class="masthead header" style = "background-image: url({% static 'pinochios/images/menu-offer-pizza.jpg' %})">
+          <div class="header-overlay">
+            <div class="container header-container">
+              <div class="intro-text">
+                <div class="intro-lead-in"><span>Welcome To Pinnochio's Pizza & Subs!</span></div>
+                <div id="header-main-content" class="intro-heading text-uppercase">
+                  <div><span>It's Nice To Meet You</span></div>
+                  <div><a class="btn btn-primary active btn-xl rounded-pill mt-5" role="button" id="header-order-button" href="#menu-section">Menu</a></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          </header>
+        </div>
+        <div class="carousel-item">
+          <header id="header3" class="masthead header" style = "background-image: url({% static 'pinochios/images/menu-offer-sub.jpg' %})">
+            <div class="header-overlay">
+              <div class="container header-container">
+                <div class="intro-text">
+                  <div class="intro-lead-in"><span>Welcome To Pinochio's Pizza & Subs!</span></div>
+                  <div id="header-main-content" class="intro-heading text-uppercase">
+                    <div><span>It's Nice To Meet You</span></div>
+                    <div><a class="btn btn-primary active btn-xl rounded-pill mt-5" role="button" id="header-order-button" href="#section-menu">Menu</a></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </header>
+        </div>
+      </div>
+      <div><a class="carousel-control-prev" href="#carousel-1" role="button" data-slide="prev"><span class="carousel-control-prev-icon"></span><span class="sr-only">Previous</span></a><a class="carousel-control-next" href="#carousel-1" role="button" data-slide="next"><span class="carousel-control-next-icon"></span><span class="sr-only">Next</span></a></div>
+      <ol
+      class="carousel-indicators">
+      <li data-target="#carousel-1" data-slide-to="0" class="active"></li>
+      <li data-target="#carousel-1" data-slide-to="1"></li>
+      <li data-target="#carousel-1" data-slide-to="2"></li>
+    </ol>
+  </div>
+      <div id="welcome">
+        <div id="welcome-header">
+          <p>Pinnochio's Pizza & Subs</p>
+        </div>
+        <div id="welcome-content">
+          <div id="welcome-image"><img src="{% static "pinochios/images/chairs-furniture-indoors-interior-design-245535.jpg" %}"/></div>
+          <div id="welcome-paragraph" class="welcome-paragraph">
+            <div class="">
+              <div class="wp-heading">
+                <p>Welcome to <span>Pinocchio's Pizza & Subs</span></p>
+              </div>
+              <div class="wp-content">
+                <p>Noch's has reached a landmark this year......50 years in business! We've been feeding Harvard and the surrounding area since 1966!<br><br>
+
+                  We sell award-winning sicilian-style pizza and mouth-watering steak subs! We have over 500 reviews on Yelp--- check it out!
+                  <br><br>
+                  Pinocchio's was recently named 1st Runner-up in the 'Boston's Best Pizza Poll' conducted by Eater.com and Top College Pizza Shop by Thrillist.com
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="services">
+        <div class="service-item">
+          <div class="service-icon" id = "food-service" style = "background-image: url({% static 'pinochios/images/icons8-pizza-100.png' %})">
+          </div>
+          <div class="service-paragraph">
+            <p>We make delicious pizza, subs, pasta and salads with all the love</p>
+          </div>
+        </div>
+        <div class="service-item">
+          <div class="service-icon" id = "order-service" style = "background-image: url({% static 'pinochios/images/icons8-delivery-100.png' %})">
+          </div>
+          <div class="service-paragraph">
+            <p>Place your order and complete the payment online</p>
+          </div>
+        </div>
+        <div class="service-item">
+          <div class="service-icon" id = "delivery-service" style = "background-image: url({% static 'pinochios/images/icons8-online-payment-100.png' %})">
+          </div>
+          <div class="service-paragraph">
+            <p>Get the food delivered to your door</p>
+          </div>
+        </div>
+      </div>
+      <div id="menu-section">
+        <div class="menu-lead-in">
+          <div class="name-heading">
+            <h3>Pinocchio's Pizza & Subs</h3>
+          </div>
+          <div class="offers-heading">
+            <h2>Menu offers</h2>
+          </div>
+          <div class="menu-lead-content">
+            <p>We offer a range of a delicious meals made with love and care.</p>
+          </div>
+        </div>
+        <div class="menu-main">
+          <div class="menu-items">
+            {% for menu_item in menu_items %}
+              {% if 'index.html' in menu_item.menu_item_name %}
+
+              {% endif %}
+              <form action = "{% url 'order' %}" method = "POST">
+                {% csrf_token %}
+                <div class="menu-item" name = "menu_item" value = "{{ menu_item.id }}">
+                    {% with 'pinochios/images/menu-offer-'|add:menu_item.menu_item_name|lower|add:'.jpg' as image_static %}
+                      <div class="menu-item-image" id = "menu-offers-{{ menu_item.menu_item_name|lower}}"  style = "background-image: url('{{ menu_item.menu_item_image.url }}');">
+
+                      </div>
+                    {% endwith %}    
+                    <div class="menu-item-description">
+                      <div class="md-p">
+                        <p>{{ menu_item.menu_description }}</p>
+                      </div>
+                      <div class="md-b">
+                        <button type="submit" name="button"> Order</button>
+                      </div>            
+                    </div>   
+                </div>
+              </form>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+        <div class="open-hours-section">
+          <div class="oh-heading">
+            <h2>Open Hours</h2>
+          </div>
+          <div class="oh-table">
+            <table class="table table-borderless">
+              <tbody>
+                <tr>
+                  <td class="oh-days">Monday - Thursday</td>
+                  <td class="oh-hours">11 am - 1 am</td>
+                </tr>
+                <tr>
+                  <td class="oh-days">Friday - Saturday</td>
+                  <td class="oh-hours">11 am - 2:30 am</td>
+                </tr>
+
+                <tr>
+                  <td class="oh-days">Sunday</td>
+                  <td class="oh-hours">1 pm - Midnight</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+{% endblock %}

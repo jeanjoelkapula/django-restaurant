@@ -1,0 +1,182 @@
+{% extends 'pinochios/base.html' %}
+{% load static %}
+{% block body %}
+      <div class="limiter">
+        <div class="limiter-container">
+          <div class="limiter-wrap">
+            <div class="wrap-form-title" >
+              <span class="wrap-form-title-1">
+                Order
+              </span>
+            </div>
+            <div class="order-panel-content">
+              <div class="order-menu-item">
+                <span>Menu Item:</span>
+                <div class="wrap-drop" id="noble-gases">
+                  <span>Pizza</span>
+                  <ul class="drop" id = "drop">
+                    <li class="selected">
+                      <li><a>Pizza</a></li>
+                      <li><a>Sub</a></li>
+                      <li><a>Burger</a></li>
+                      <li><a>Salad</a></li>
+                      <li><a>Pasta</a></li>
+                      <li><a>Dinner Platter</a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="pizza-type-selection">
+                  <span>Pizza type:</span>
+                  <ul>
+                    <li>
+                      <input type="radio" id="regular-option" name="selector">
+                      <label for="regular-option">Regular</label>
+
+                      <div class="check"></div>
+                    </li>
+                    <li>
+                      <input type="radio" id="sicilian-option" name="selector">
+                      <label for="sicilian-option">Sicilian</label>
+
+                      <div class="check"><div class="inside"></div></div>
+                    </li>
+                  </ul>
+                </div>
+                <div class="order-size">
+                  <span>Size:</span>
+                  <ul>
+                    <li>
+                      <input type="radio" id="small-option" name="selector1">
+                      <label for="small-option">Small</label>
+
+                      <div class="check1"></div>
+                    </li>
+                    <li>
+                      <input type="radio" id="large-option" name="selector1">
+                      <label for="large-option">Large</label>
+                      <div class="check1"><div class="inside"></div></div>
+                    </li>
+                  </ul>
+                </div>
+                <div class="topping-selection">
+                  <span>Select toppings:</span>
+                  <div class="wrap-drop" id="topping-dropdown">
+                    <span>Pepperoni</span>
+                    <ul class="drop">
+                      <li class="selected">
+                        <li><a>Pepperoni</a><img src="images/checkmark.png"></li>
+                        <li><a>Sausage</a><img src="images/checkmark.png"></li>
+                        <li><a>Mushrooms</a><img src="images/checkmark.png"></li>
+                        <li><a>Onions</a><img src="images/checkmark.png"></li>
+                        <li><a>Ham</a><img src="images/checkmark.png"></li>
+                        <li><a>Canadian Bacon</a><img src="images/checkmark.png"></li>
+                        <li><a>Pineapple</a><img src="images/checkmark.png"></li>
+                        <li><a>Eggplant</a><img src="images/checkmark.png"></li>
+                        <li><a>Tomato & Basil</a><img src="images/checkmark.png"></li>
+                        <li><a>Green Peppers</a><img src="images/checkmark.png"></li>
+                        <li><a>Hamburger</a><img src="images/checkmark.png"></li>
+                        <li><a>Spinach</a><img src="images/checkmark.png"></li>
+                        <li><a>Artichoke</a><img src="images/checkmark.png"></li>
+                        <li><a>Buffalo Chicken</a><img src="images/checkmark.png"></li>
+                        <li><a>Barbecue Chicken</a><img src="images/checkmark.png"></li>
+                        <li><a>Anchovies</a><img src="images/checkmark.png"></li>
+                        <li><a>Black Olives</a><img src="images/checkmark.png"></li>
+                        <li><a>Fresh Garlic</a><img src="images/checkmark.png"></li>
+                        <li><a>Zucchini</a><img src="images/checkmark.png"></li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="subs-selection">
+                    <span>Select a sub:</span>
+                    <div class="wrap-drop" id="subs-dropdown">
+                      <span>Cheese</span>
+                      <ul class="drop">
+                        <li class="selected">
+                          <li><a>Cheese</a></li>
+                          <li><a>Italian</a></li>
+                          <li><a>Ham + Cheese</a></li>
+                          <li><a>Meatball</a></li>
+                          <li><a>Tuna</a></li>
+                          <li><a>Turkey</a></li>
+                          <li><a>Chicken Parmigiana</a></li>
+                          <li><a>Eggplant Parmigiana</a></li>
+                          <li><a>Steak</a></li>
+                          <li><a>Steak + Cheese</a></li>
+                          <li><a>+ Mushrooms</a></li>
+                          <li><a>+ Green Peppers</a></li>
+                          <li><a>+ Onions</a></li>
+                          <li><a>Sausage, Peppers & Onions</a></li>
+                          <li><a>Hamburger</a></li>
+                          <li><a>Cheeseburger</a></li>
+                          <li><a>Fried Chicken</a></li>
+                          <li><a>Veggie</a></li>
+                          <li><a>Extra Cheese on any sub</a></li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="pasta-selection">
+                      <span>Select your meal:</span>
+                      <div class="wrap-drop" id="pasta-dropdown">
+                        <span>Baked Ziti w/Mozzarella</span>
+                        <ul class="drop" id = "drop">
+                          <li class="selected">
+                            <li><a>Baked Ziti w/Mozzarella</a></li>
+                            <li><a>Baked Ziti w/Meatballs</a></li>
+                            <li><a>Baked Ziti w/Chicken</a></li>
+                          </li>
+                          </ul>
+                        </div>
+                      </div>
+                      <div class="salad-selection">
+                        <span>Select your meal:</span>
+                        <div class="wrap-drop" id="salad-dropdown">
+                          <span>Garden Salad</span>
+                          <ul class="drop" id = "drop">
+                            <li class="selected">
+                              <li><a>Garden Salad</a></li>
+                              <li><a>Greek Salad</a></li>
+                              <li><a>Antipasto</a></li>
+                              <li><a>Salad w/Tuna</a></li>
+                              </li>
+                          </ul>
+                          </div>
+                        </div>
+                        <div class="dinner-platter-selection">
+                          <span>Select your platter:</span>
+                          <div class="wrap-drop" id="platter-dropdown">
+                            <span>Pizza</span>
+                            <ul class="drop" id = "drop">
+                              <li class="selected">
+                                <li><a>Garden Salad</a></li>
+                                <li><a>Greek Salad</a></li>
+                                <li><a>Antipasto</a></li>
+                                <li><a>Baked Ziti</a></li>
+                                <li><a>Meatball Parm</a></li>
+                                <li><a>Chicken Parm</a></li>
+                              </li>
+                              </ul>
+                            </div>
+                          </div>
+                          <div class="quantity-section">
+                            <span>Quantity</span>
+                            <div class="number">
+                              <div class="minus">-</div>
+                              <input type="text" value="1" id ="quantity"/>
+                              <div class="plus">+</div>
+                            </div>
+                          </div>
+                          <div class="order-total">
+                            <span>Total:  $</span><span id = "order-total-value">50</span>
+                          </div>
+                          <div class="limiter-wrap-submit">
+                            <button class="wrap-submit-button" onclick= "signup()" type= "button">
+                              Add to cart
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>                   
+                    </div>
+{% endblock %}
+

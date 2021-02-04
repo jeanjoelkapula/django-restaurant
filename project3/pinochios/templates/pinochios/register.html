@@ -1,0 +1,74 @@
+{% extends 'pinochios/base.html' %}
+{% block body %}
+  <div class="limiter">
+    <div class="limiter-container">
+      <div class="limiter-wrap">
+        <div class="wrap-form-title" >
+          <span class="wrap-form-title-1">
+            Sign Up
+          </span>
+        </div>
+
+        <form class="login100-form validate-form" action = "{% url 'register' %}" method = "POST">
+            {% csrf_token %}
+          <div class="wrap-input100 validate-input m-b-26" data-validate="Username is required">
+            <input id="firstname-field" name = "firstname" class="input100" type="text" placeholder="Enter first name" required>
+            <span class="focus-input100"></span>
+          </div>
+          <div class="error-message">
+            <p>error</p>
+          </div>
+          <div class="wrap-input100 validate-input m-b-26" data-validate="Username is required">
+            <input id= "lastname-field" name ="lastname" class="input100" type="text" placeholder="Enter last name" required>
+            <span class="focus-input100"></span>
+          </div>
+          <div class="error-message">
+            <p>error</p>
+          </div>
+          <div class="wrap-input100 validate-input m-b-26" data-validate="Username is required">
+            <input id = "username-field" name = "username" class="input100" type="text" placeholder="Enter username" required>
+            <span class="focus-input100"></span>
+          </div>
+          <div class="error-message" id ="username-error-section">
+            <p id = "username-error">error</p>
+          </div>
+          
+          <div class="wrap-input100 validate-input m-b-26" data-validate="Username is required">
+              <input id = "email-field" name = "email" class="input100" type="email" placeholder="Enter email">
+              <span class="focus-input100"></span>
+            </div>
+            <div class="error-message" id ="email-error-section">
+              <p id = "username-error">error</p>
+            </div>
+          <div class="wrap-input100 validate-input m-b-18" data-validate = "Password is required" >
+            <input id = "password-field" name = "password" class="input100" type="password" placeholder="Enter password" required>
+            <span class="focus-input100"></span>
+          </div>
+          <div class="error-message">
+            <p>error</p>
+          </div>
+          <div class="wrap-input100 validate-input m-b-18" data-validate = "Password is required">
+            <input id = "confirm-password-field" name = "password-confirm" class="input100" type="password" placeholder="Confirm password" required>
+            <span class="focus-input100"></span>
+          </div>
+          <div class="error-message" id = "password-confirm-error">
+            <p id = "password-match-error" >error</p>
+          </div>
+          {% if message %}
+            <div>
+              <p class = "error">{{message}}</p>
+            </div>
+          {% endif %}
+          <div class = "form-login-link">
+            <a href="{% url 'login' %}">Already have an account? Click here</a>
+          </div>
+          <div class="limiter-wrap-submit">
+            <button class="wrap-submit-button" type= "submit">
+              Sign up
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+{% endblock %}

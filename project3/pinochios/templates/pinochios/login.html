@@ -1,0 +1,50 @@
+{% extends 'pinochios/base.html' %}
+{% load static %}
+{% block body %}  
+  <div class="limiter">
+    <div class="limiter-container">
+      <div class="limiter-wrap">
+        <div class="wrap-form-title" >
+        <span class="wrap-form-title-1">
+          Login
+        </span>
+        </div>
+
+        <form class="login100-form validate-form" action = "{% url 'login' %}" method = "POST">
+          {% csrf_token %}
+          {% if previous_page %}
+            <input name = "previous_page" value="{{ previous_page }}" style = "display: none;">
+          {% else %}
+            <input name = "previous_page" value="None">
+          {% endif %}
+          
+          <div class="wrap-input100 validate-input m-b-26" data-validate="Username is required">
+            <input id = "username-field" name = "username" class="input100" type="text" placeholder="Enter username">
+            <span class="focus-input100"></span>
+          </div>
+          <div class="wrap-input100 validate-input m-b-18" data-validate = "Password is required">
+            <input id = "password-field" name = "password" class="input100" type="password" placeholder="Enter password">
+            <span class="focus-input100"></span>
+          </div>
+          <div class="error-message">
+            <p>error</p>
+          </div>
+          {% if message %}
+            <div>
+              <p class = "error">{{message}}</p>
+            </div>
+          {% endif %}
+          <div class="form-register-link">
+              <a href="{% url 'register' %}">Don't have an account? Click here</a>
+          </div>
+          <div class="limiter-wrap-submit">
+            <button class="wrap-submit-button" type= "submit">
+              Login
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+{% endblock %}  
+

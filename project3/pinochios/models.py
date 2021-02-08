@@ -1,4 +1,5 @@
 from django.db import models
+from rest_framework import serializers
 import datetime
 
 # Create your models here.
@@ -40,6 +41,37 @@ class Order(models.Model):
     order_status = models.CharField(max_length=50)
     order_amount = models.FloatField(null=True)
     order_items = models.ForeignKey(OrderItem, on_delete = models.DO_NOTHING, null=False)
+
+#serializers
+class MenuOptionSerializer(serializers.ModelSerializer):
+    class Meta:
+        fields = '__all__'
+        model = MenuItemOption
+
+class MenuAddOnSerializer(serializers.ModelSerializer):
+    class Meta:
+        fields = '__all__'
+        model = MenuItemAddOn
+        
+class MenuItemSerializer(serializers.ModelSerializer):  
+    menu_options = MenuOptionSerializer(many=True, read_only=True) 
+    add_on_options = MenuAddOnSerializer(many=True, read_only=True)
+
+    class Meta:
+        fields = '__all__'
+        model = MenuItem
+
+class Helper:
+    def get_menu_serialized(query_set):
+        data = []
+        for menuItem in query_set:
+            data.append(MenuItemSerializer(menuItem).data)
+        return data
+
+
+
+
+
 
 
 

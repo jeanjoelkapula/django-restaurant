@@ -820,6 +820,7 @@ width:0;
 
 .wrap-drop .drop li {
   display: flex;
+  flex-direction: column;
 }
 .wrap-drop .drop li a {
 color: rgb(118,118,118);

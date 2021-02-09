@@ -12,16 +12,13 @@
             <div class="order-panel-content">
               <div class="order-menu-item">
                 <span>Menu Item:</span>
-                <div class="wrap-drop" id="noble-gases">
-                  <span>Pizza</span>
+                <div class="wrap-drop" id="menu-items-dd">
+                  <span id = "order-menu-item-span"></span>
                   <ul class="drop" id = "drop">
                     <li class="selected">
-                      <li><a>Pizza</a></li>
-                      <li><a>Sub</a></li>
-                      <li><a>Burger</a></li>
-                      <li><a>Salad</a></li>
-                      <li><a>Pasta</a></li>
-                      <li><a>Dinner Platter</a>
+                      {% for menu_item in menu %}
+                        <li><a>{{ menu_item.menu_item_name }}</a></li>
+                      {% endfor %}
                       </li>
                     </ul>
                   </div>
@@ -59,35 +56,17 @@
                     </li>
                   </ul>
                 </div>
-                <div class="topping-selection">
-                  <span>Select toppings:</span>
+                <div class="menu-option-selection">
+                  <span>Select the option:</span>
                   <div class="wrap-drop" id="topping-dropdown">
                     <span>Pepperoni</span>
                     <ul class="drop">
-                      <li class="selected">
-                        <li><a>Pepperoni</a><img src="images/checkmark.png"></li>
-                        <li><a>Sausage</a><img src="images/checkmark.png"></li>
-                        <li><a>Mushrooms</a><img src="images/checkmark.png"></li>
-                        <li><a>Onions</a><img src="images/checkmark.png"></li>
-                        <li><a>Ham</a><img src="images/checkmark.png"></li>
-                        <li><a>Canadian Bacon</a><img src="images/checkmark.png"></li>
-                        <li><a>Pineapple</a><img src="images/checkmark.png"></li>
-                        <li><a>Eggplant</a><img src="images/checkmark.png"></li>
-                        <li><a>Tomato & Basil</a><img src="images/checkmark.png"></li>
-                        <li><a>Green Peppers</a><img src="images/checkmark.png"></li>
-                        <li><a>Hamburger</a><img src="images/checkmark.png"></li>
-                        <li><a>Spinach</a><img src="images/checkmark.png"></li>
-                        <li><a>Artichoke</a><img src="images/checkmark.png"></li>
-                        <li><a>Buffalo Chicken</a><img src="images/checkmark.png"></li>
-                        <li><a>Barbecue Chicken</a><img src="images/checkmark.png"></li>
-                        <li><a>Anchovies</a><img src="images/checkmark.png"></li>
-                        <li><a>Black Olives</a><img src="images/checkmark.png"></li>
-                        <li><a>Fresh Garlic</a><img src="images/checkmark.png"></li>
-                        <li><a>Zucchini</a><img src="images/checkmark.png"></li>
+                      <li class="selected" id = "menu-options-container">
+                    
                       </ul>
                     </div>
                   </div>
-                  <div class="subs-selection">
+                  <div class="topping-selection">
                     <span>Select a sub:</span>
                     <div class="wrap-drop" id="subs-dropdown">
                       <span>Cheese</span>
@@ -178,5 +157,8 @@
                       </div>
                     </div>                   
                     </div>
+<script>
+  var menu = {{ menu_json|safe }};
+</script>
 {% endblock %}
 

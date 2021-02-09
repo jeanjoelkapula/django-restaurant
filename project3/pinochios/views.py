@@ -5,6 +5,7 @@ from django.views.decorators.http import require_http_methods
 from django.shortcuts import render
 from django.urls import reverse
 from .models import *
+import json
 
 # Create your views here.
 def index(request):
@@ -75,7 +76,13 @@ def order_view(request):
         if not request.user.is_authenticated:
             return render(request, 'pinochios/login.html', {'previous_page':'order', 'message':None})
         else:
-            return render(request, 'pinochios/order.html')
+            menu = MenuItem.objects.all()
+            menu_serialized = Helper.get_menu_serialized(menu)
+            context = {
+                "menu": menu_serialized,
+                "menu_json": json.dumps(menu_serialized)
+            }
+            return render(request, 'pinochios/order.html', context)
 
 @require_http_methods(['GET', 'POST'])
 def cart_view(request):
